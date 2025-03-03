@@ -20,13 +20,13 @@ Unlike the original, this version fully supports **browser environments** and pr
 ## Installation
 
 ```sh
-npm install @init/jsonparse-ts
+npm install @init-kz/jsonparse-ts
 ```
 
 ## Usage
 
 ```ts
-import { Parser } from '@init/jsonparse-ts';
+import { Parser } from '@init-kz/jsonparse-ts';
 
 const parser = new Parser();
 parser.write('[{"name": "A');
