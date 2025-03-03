@@ -1,49 +1,58 @@
 {
-  "name": "@init/jsonparse-ts",
-  "version": "1.0.0",
-  "description": "Library for parsing partial jsons inspired by original jsonparse written on js",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
-  },
-  "scripts": {
-    "build": "tsup",
-    "build:watch": "tsup --watch",
-    "serve": "http-server -p 8080",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run build",
-    "publish": "npm publish --access public",
-    "clean": "rm -rf dist",
-    "test": "vitest run",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "maintainers": [
-    {
-      "name": "Tim Caswell",
-      "url": "https://github.com/creationix"
+    "name": "@init/jsonparse-ts",
+    "version": "1.0.0",
+    "description": "Library for parsing partial jsons inspired by original jsonparse written on js",
+    "homepage": "https://init.kz",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/init-pkg/jsonparse-ts"
+    },
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "type": "module",
+    "exports": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+    },
+    "scripts": {
+        "build": "tsup",
+        "build:watch": "tsup --watch",
+        "serve": "http-server -p 8080",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run build",
+        "publish": "npm publish --access public",
+        "clean": "rm -rf dist",
+        "test": "vitest run",
+        "test:watch": "vitest --watch",
+        "test:coverage": "vitest --coverage"
+    },
+    "files": [
+        "dist"
+    ],
+    "keywords": [],
+    "author": "INIT.KZ",
+    "license": "MIT",
+    "maintainers": [
+        {
+            "name": "Tim Caswell",
+            "url": "https://github.com/creationix"
+        },
+        {
+            "name": "Sauyrbai Imangali",
+            "url": "https://github.com/Imangali-Sauyrbay"
+        }
+    ],
+    "devDependencies": {
+        "@types/node": "^22.13.5",
+        "http-server": "^14.1.1",
+        "tsup": "^8.4.0",
+        "typescript": "^5.7.3",
+        "vitest": "^3.0.7"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
     }
-  ],
-  "devDependencies": {
-    "@types/node": "^22.13.5",
-    "http-server": "^14.1.1",
-    "tsup": "^8.4.0",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.7"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  }
 }

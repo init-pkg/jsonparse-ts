@@ -48,13 +48,13 @@ export function omitEmptyArrayOrObject<T>(value: T): T {
         return value
             .map(omitEmptyArrayOrObject)
             .filter(item => !(Array.isArray(item) && item.length === 0) &&
-                            !(typeof item === "object" && item !== null && Object.keys(item).length === 0)) as T;
+                !(typeof item === "object" && item !== null && Object.keys(item).length === 0)) as T;
     } else if (typeof value === "object" && value !== null) {
         return Object.fromEntries(
             Object.entries(value)
                 .map(([key, val]) => [key, omitEmptyArrayOrObject(val)])
                 .filter(([, val]) => !(Array.isArray(val) && val.length === 0) &&
-                                     !(typeof val === "object" && val !== null && Object.keys(val).length === 0))
+                    !(typeof val === "object" && val !== null && Object.keys(val).length === 0))
         ) as T;
     }
 
