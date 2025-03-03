@@ -1,5 +1,5 @@
 {
-    "name": "@init/jsonparse-ts",
+    "name": "@init-kz/jsonparse-ts",
     "version": "1.0.0",
     "description": "Library for parsing partial jsons inspired by original jsonparse written on js",
     "homepage": "https://init.kz",
