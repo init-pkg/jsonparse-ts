@@ -2,7 +2,7 @@
     "name": "@init-kz/jsonparse-ts",
     "version": "1.0.2",
     "description": "Library for parsing partial jsons inspired by original jsonparse written on js",
-    "homepage": "https://init.kz",
+    "homepage": "https://init.kz/en",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/init-pkg/jsonparse-ts.git"

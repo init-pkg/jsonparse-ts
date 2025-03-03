@@ -71,9 +71,6 @@ Returns the internal parsing stack.
 ### `getOffset(): number`
 Returns the current byte offset in the stream.
 
-### `reset(): void`
-Resets the parser's internal state.
-
 ### `write(chunk: string | Uint8Array): void`
 Processes a chunk of JSON data.
 
