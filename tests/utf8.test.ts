@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Parser } from "../src/parser";
+import { Parser } from "../src/index";
 
 describe("UTF-8 Handling in Parser", () => {
   it("should correctly parse 3-byte UTF-8 characters", () => {
@@ -30,16 +30,14 @@ describe("UTF-8 Handling in Parser", () => {
 
    it("should correctly parse UTF-8 mixed with ASCII", () => {
      const parser = new Parser();
-     const expected = ["snow: ☃!", "xyz", "¡que!"];
+     const expected = ["snow: ☃!", "xyz", "¡que!", ["snow: ☃!", "xyz", "¡que!"]];
      let receivedValues: any[] = [];
 
      parser.onValue((value) => {
-      console.log(value);
-
        receivedValues.push(value);
      });
 
-     parser.write('{"value": ["snow: ☃!","xyz","¡qu');
+     parser.write('["snow: ☃!", "xyz", "¡que!"]');
 
      expect(receivedValues).toEqual(expected);
    });

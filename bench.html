@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    PARSER BROWSER TEST!
+
+    <script type="module">
+        import { Parser } from "./dist/index.js"
+
+        const res = await fetch("/samples/basic_1.json");
+        const basicJson = await res.text();
+
+        const chunks = [];
+        for (let i = 0; i < basicJson.length; i += 256) {
+            chunks.push(basicJson.slice(i, i + 256));
+        }
+
+        for (let i = 0; i < 10; i++) {
+            let start = Date.now();
+
+            for (let i = 0; i < 1000; i++) {
+                JSON.parse(basicJson);
+            }
+
+            const first = Date.now() - start;
+
+            start = Date.now();
+            const p = new Parser();
+            for (let i = 0; i < 1000; i++) {
+                p.write(basicJson);
+            }
+            const second = Date.now() - start;
+
+            start = Date.now();
+            const p2 = new Parser();
+            for (let i = 0; i < 1000; i++) {
+                for (const chunk of chunks) {
+                    p2.write(chunk);
+                }
+            }
+            const third = Date.now() - start;
+
+            console.log("JSON.parse took %s", first);
+            console.log("streaming parser took %s", second);
+            console.log("streaming is %s times slower", second / first);
+            console.log("chunked streaming parser took %s", third);
+            console.log("chunked streaming is %s times slower", third / first);
+        }
+    </script>
+</body>
+
+</html>
