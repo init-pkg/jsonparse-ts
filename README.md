@@ -1,5 +1,9 @@
 # JSON Stream Parser (TypeScript Edition)
 
+<p align="center">
+  <img src="assets/favicon.svg" width="100" height="100" alt="Logo">
+</p>
+
 This is a fully rewritten **TypeScript** version of the `jsonparse` library.
 Originally created by Tim Caswell in 2012, this version modernizes the approach by following **OOP principles** and introducing additional functionality.
 
