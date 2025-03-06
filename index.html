@@ -12,16 +12,14 @@
 
     <script type="module">
         import { Parser } from "./dist/index.js"
+        const data = ['', '{"', 'content', '":[', '{"', 'title', '":"', 'С', 'одержание', '","', 'brief', '":"', 'Раз', 'дел', ' с', ' основ', 'ными', ' тем', 'ами', ' бл', 'ога', ' о', ' SEO', '.","', 'children', '":[', '{"', 'title', '":"', 'В', 'ведение', '","', 'brief', '":"', 'К', 'рат', 'кий', ' обзор', ' темы', ' SEO', ' и', ' его', ' важ', 'ности', '."', '}]', '},{"', 'title', '":"', 'Зак', 'люч', 'ение', '","', 'brief', '":"', 'Под', 'ведение', ' итог', 'ов', ' и', ' основные', ' вывод', 'ы', ' по', ' теме', ' SEO', '.","', 'children', '":', '[]}', ']}', ''];
 
         const parser = new Parser();
-        parser.write('[{"name": "A')
-        console.log(parser.getLastIncompleteValue())
-        parser.write('"}, {"na')
-        console.log(parser.getLastIncompleteValue())
-        parser.write('me": "Occaecat aliq')
-        console.log(parser.getLastIncompleteValue())
-        parser.write('uip id officia ipsum deserunt ea id labore magna qui elit dolore consectetur dolore.')
-        console.log(parser.getLastIncompleteValue())
+
+        data.forEach((d, i) => {
+            parser.write(d);
+            console.log(i, d, parser.getLastIncompleteValue())
+        })
 
     </script>
 </body>

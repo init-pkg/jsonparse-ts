@@ -116,6 +116,7 @@ export class StateHandler {
     public getLastIncompleteValue(omitEmpty = false) {
         if (typeof this.lastValue === "undefined" || this.stack.length > 0) {
             let currentValue: any = undefined;
+            let settedCurrentValue = false;
 
             if (this.mode) {
                 switch (this.tState) {
@@ -144,7 +145,10 @@ export class StateHandler {
                         currentValue = this.stringHandler.flushBuffer().getString();
                         break;
                 }
-                if (typeof currentValue !== "undefined" && typeof this.key !== "undefined") this.value[this.key as string] = currentValue
+                if (typeof currentValue !== "undefined" && typeof this.key !== "undefined" && typeof this.value[this.key as string] === "undefined") {
+                    this.value[this.key as string] = currentValue
+                    settedCurrentValue = true;
+                }
             }
 
             const newStack = [...this.stack, { value: this.value, key: this.key, mode: this.mode }]
@@ -162,9 +166,9 @@ export class StateHandler {
                 parent = JSON.parse(JSON.stringify(parent))
             }
 
-            if (typeof currentValue !== "undefined" && typeof this.key !== "undefined") delete this.value[this.key as string];
+            if (typeof currentValue !== "undefined" && typeof this.key !== "undefined" && settedCurrentValue) delete this.value[this.key as string];
 
-            if(parent) return omitEmpty ? omitEmptyArrayOrObject(parent) : parent;
+            if (parent) return omitEmpty ? omitEmptyArrayOrObject(parent) : parent;
         }
 
         return this.lastValue ?? null;
