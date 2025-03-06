@@ -1,6 +1,6 @@
 {
     "name": "@init-kz/jsonparse-ts",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Library for parsing partial jsons inspired by original jsonparse written on js",
     "homepage": "https://init.kz/en",
     "repository": {
@@ -8,11 +8,11 @@
         "url": "git+https://github.com/init-pkg/jsonparse-ts.git"
     },
     "main": "dist/index.cjs",
-    "module": "dist/index.mjs",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "type": "module",
     "exports": {
-        "import": "./dist/index.mjs",
+        "import": "./dist/index.js",
         "require": "./dist/index.cjs"
     },
     "scripts": {
@@ -29,7 +29,7 @@
     "files": [
         "dist"
     ],
-    "keywords": [],
+    "keywords": ["JSON", "Parser", "Stream Parser JSON", "Stream", "jsonparse-ts", "jsonparse"],
     "author": "INIT.KZ",
     "license": "MIT",
     "maintainers": [
